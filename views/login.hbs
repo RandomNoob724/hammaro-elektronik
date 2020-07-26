@@ -1,0 +1,30 @@
+<main class="mt-5">
+    {{#if isLoggedIn}}
+        <p>You're already logged in</p>
+    {{else}}
+        <div class="container-fluid jumbotron text-center col-md-5">
+            <form class="form-signin" method="POST" action="/login">
+                {{#if loginErrors.length}}
+                    <ul class="list-group list-group-flush my-5">
+                        {{#each loginErrors}}
+                            <li class="list-group-item text-danger bg-light">{{this}}</li>
+                        {{/each}}
+                    </ul>
+                {{/if}}
+                <input type="hidden" name="_csrf" value="{{csrfToken}}">
+                <div class="text-center mb-4">
+                    <h1 class="h3 mb-3 font-weight-normal">Admin Login</h1>
+                </div>
+
+                <div class="form-label-group my-4">
+                    <input autocomplete="username" type="text" value="{{username}}" name="username" id="username" class="form-control" placeholder="Username" required autofocus>
+                </div>
+
+                <div class="form-label-group my-4">
+                    <input autocomplete="current-password" type="password" name="password" id="password" class="form-control" placeholder="Password" required>
+                </div>
+                <button class="btn btn-lg btn-primary btn-block" type="submit">Sign in</button>
+            </form>
+        </div>
+    {{/if}}
+</main>

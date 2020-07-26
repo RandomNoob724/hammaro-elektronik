@@ -9,3 +9,5 @@ router.get('/forgot-password', function (request, response){
 router.get('/login', function (request, response){
     response.send("Hello login")
 })
+
+module.exports = router
