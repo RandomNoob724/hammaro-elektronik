@@ -10,7 +10,7 @@ const SQLiteStore = require('connect-sqlite3')(expressSession)
 //routers
 const serviceRouter = require('./routers/serviceRouter')
 const dashboardRouter = require('./routers/dashboardRouter')
-const accountRouter = require('./routers/accountRouter')
+const staffRouter = require('./routers/staffRouter')
 
 //hardcoded login credentials
 const codedUsername = 'Admin'
@@ -37,9 +37,9 @@ app.use(function (request, response, next) {
     next()
 })
 
-app.use('/account', accountRouter)
 app.use('/service', serviceRouter)
 app.use('/dashboard', dashboardRouter)
+app.use('/staff', staffRouter)
 
 app.get('/', function (request, response) {
     response.render('home.hbs')
@@ -56,11 +56,14 @@ app.get('/login', function (request, response) {
 app.post('/login', function (request, response) {
     const username = request.body.username
     const password = request.body.password
-    if (request.body.username == codedUsername && request.body.password == codedPassword) {
+    if (username == codedUsername && password == codedPassword) {
         request.session.isLoggedIn = true
         response.redirect('/')
     } else {
-        response.send("error while logging in")
+        const errorModel = {
+            loginError: "Non valid login"
+        }
+        response.render('login.hbs', errorModel)
     }
 })
 

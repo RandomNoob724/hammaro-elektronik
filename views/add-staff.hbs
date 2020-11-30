@@ -1,0 +1,26 @@
+<main>
+    <div class="jumbotron container" id="create-post-form">
+        <form class="form-createpost form" method="POST" action="/staff/add?_csrf={{csrfToken}}" enctype="multipart/form-data">
+            <h1 class="text-center">Add Staff Memeber</h1>
+            <br>
+            <input type="hidden" name="_csrf" value="{{csrfToken}}" id="create-post-input-field">
+            <div class="form-label-group">
+                <input name="firstName" type="text" id="firstName" class="form-control" placeholder="Förnamn" value="{{firstName}}" maxlength="100">
+            </div>
+            <br>
+            <div class="form-label-group">
+                <input name="lastName" type="text" class="form-control" placeholder="Efternamn" value="{{lastName}}" maxlength="100">
+            </div>
+            <br>
+            <div class="form-label-group">
+                <input name="profession" type="text" class="form-control" placeholder="Jobb Titel" value="{{profession}}" maxlength="100">
+            </div>
+            <br>
+            <div class="form-label-group">
+                <input type="file" name="myFile" class="form-control" accept=".jpg .png">
+            </div>
+            <br>
+            <button class="btn btn-lg btn-primary btn-block" type="submit" id="create-post-submitbutton">Post</button>
+        </form>
+    </div>
+</main>

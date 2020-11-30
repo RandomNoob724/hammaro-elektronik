@@ -1,4 +1,7 @@
 <main class="mt-5">
+    {{#if errorModel}}
+        <p>{{loginError}}</p>
+    {{/if}}
     {{#if isLoggedIn}}
         <p>You're already logged in</p>
     {{else}}
