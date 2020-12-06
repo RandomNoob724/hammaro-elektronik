@@ -1,0 +1,30 @@
+<div class="container-fluid">
+    <h1>Manage Projects</h1>
+    <table class="table table-striped col-md" id="project-table">
+        <thead>
+            <tr>
+            <th scope="col">Title</th>
+            <th scope="col">Edit</th>
+            <th scope="col">Delete</th>
+            </tr>
+        </thead>
+        <tbody>
+            {{#if staffList.length}}
+                {{#each staffList}}
+                    <tr>
+                        <td>{{firstName}} {{lastName}}</td>
+                        <td><a href="/staff/update/{{id}}"><button class="btn btn-secondary">Edit</button></a></td>
+                        <td>
+                            <form method="POST" action="/staff/{{id}}/delete">
+                                <input type="hidden" name="_csrf" value="{{../csrfToken}}">
+                                <button class="btn btn-danger" type="submit">Delete</button>
+                            </form>
+                        </td>
+                    </tr>
+                {{/each}}
+            {{else}}
+                <td>No post found</td>
+            {{/if}}
+        </tbody>
+    </table>
+</div>

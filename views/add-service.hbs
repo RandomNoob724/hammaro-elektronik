@@ -1,0 +1,22 @@
+<main>
+    <div class="jumbotron container" id="create-post-form">
+        <form class="form-createpost form" method="POST" action="/service/add" enctype="multipart/form-data">
+            <h1 class="text-center">Add Services</h1>
+            <br>
+            <input type="hidden" name="_csrf" value="{{csrfToken}}" id="create-post-input-field">
+            <div class="form-label-group">
+                <input name="serviceTitle" type="text" id="serviceTitle" class="form-control" placeholder="Service" value="{{serviceTitle}}" maxlength="100">
+            </div>
+            <br>
+            <div class="form-label-group">
+                <input name="description" type="text" id="description" class="form-control" placeholder="Beskrivning" value="{{description}}" maxlength="500">
+            </div>
+            <br>
+            <div class="form-label-group">
+                <input type="file" name="serviceImage" class="form-control" accept="image/jpg, image/png">
+            </div>
+            <br>
+            <button class="btn btn-lg btn-primary btn-block" type="submit" id="create-post-submitbutton">Post</button>
+        </form>
+    </div>
+</main>

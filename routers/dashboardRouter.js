@@ -2,22 +2,17 @@ const express = require('express')
 
 const router = express.Router()
 
-router.get('/', function(request, response){
-    //add authentication and authorization
-    if(request.session.isLoggedIn){
-        response.render('dashboard.hbs')
+//Beyond this part just put authentication stuff
+router.use(function (request, response, next) {
+    if (request.session.isLoggedIn) {
+        next()
     } else {
-        response.send("Authentication failed")
+        response.status(401).render('error401.hbs')
     }
 })
 
-router.get('/service', function (request, response){
-    //add authentication here too
-    response.render('addservice.hbs')
-})
-
-router.get('/addnews', function (request, response){
-    response.render('addnews.hbs')
+router.get('/', function (request, response) {
+    response.render('dashboard.hbs')
 })
 
 module.exports = router

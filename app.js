@@ -11,6 +11,7 @@ const SQLiteStore = require('connect-sqlite3')(expressSession)
 const serviceRouter = require('./routers/serviceRouter')
 const dashboardRouter = require('./routers/dashboardRouter')
 const staffRouter = require('./routers/staffRouter')
+const newsRouter = require('./routers/newsRouter')
 
 //hardcoded login credentials
 const codedUsername = 'Admin'
@@ -37,6 +38,7 @@ app.use(function (request, response, next) {
     next()
 })
 
+app.use('/news', newsRouter)
 app.use('/service', serviceRouter)
 app.use('/dashboard', dashboardRouter)
 app.use('/staff', staffRouter)

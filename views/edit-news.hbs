@@ -1,0 +1,27 @@
+<main>
+    <div class="jumbotron container" id="create-post-form">
+        <form class="form-createpost form" method="POST" action="/news/update/{{newsObject.id}}">
+            <h1 class="text-center">Edit blogpost</h1>
+            <div class="text-center mb-4">
+                {{#if validationErrors.length}}
+                <p>Errors:</p>
+                <ul>
+                    {{#each validationErrors}}
+                    <li>{{this}}</li>
+                    {{/each}}
+                </ul>
+                {{/if}}
+            </div>
+            <input type="hidden" name="_csrf" value="{{csrfToken}}">
+            <div class="form-label-group">
+                <input name="title" type="text" id="create-post-input-field" class="form-control"
+                    placeholder="Blogpost Header" value="{{newsObject.title}}">
+            </div>
+            <div class="form-label-group">
+                <textarea name="description" type="text" id="create-post-input-field" class="form-control"
+                    placeholder="Blogpost Header">{{newsObject.content}}</textarea>
+            </div>
+            <button class="btn btn-lg btn-primary btn-block" type="submit" id="create-post-submitbutton">Updatera</button>
+        </form>
+    </div>
+</main>

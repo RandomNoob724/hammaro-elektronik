@@ -1,0 +1,61 @@
+<div class="container">
+    <div class="row">
+        <div class="col-md-12 align-items-md-center">
+            <h1 class="my-4 text-center">Nyheter</h1>
+            <form class="form-inline my-2 my-lg-0" action="/blog/search" method="GET">
+                <input class="form-control mr-sm-2" name="inputedSearch" type="search" placeholder="Sök" aria-label="Search" value="{{keyWord}}">
+                <label class="mr-2 ml-2">Nyheter från: </label><input class="form-control" name="dateFrom" type="date" value="{{startDate}}">
+                <label class="mr-2 ml-2">Nyheter före: </label><input class="form-control" name="dateTo" type="date" value="{{todaysDate}}">
+                <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Sök</button>
+            </form>
+            <!-- Blog Post -->
+            {{#if couldNotDeletePost}}
+                <h3>Servern kunde inte hantera delete requesten försök igen eller kontakta Admin</h3>
+            {{/if}}
+            {{#if validationErrors.length}}
+                {{#each validationErrors}}
+                    <p class="text-danger">{{this}}</p>
+                {{/each}}
+            {{/if}}
+            {{#if somethingWentWrong}}
+                <h3>Ursäkta oss!</h3>
+                <p>Något gick fel med att ladda nyheter</p>
+            {{else}}
+                <!-- For each blog post that is in the data file it will generate a blog post -->
+                {{#if newsList.length}}
+                    {{#each newsList}}
+                        <div class="my-5 card">
+                            <div class="card-body">
+                                <h2 class="card-title text-center">{{title}}</h2>
+                                <img class="mx-auto d-block mb-3" style="width: 100%" src="{{imageLink}}" alt="">
+                                <p class="card-text preview-text font-weight-light">{{description}}</p>
+                                <a href="/blog/post/{{id}}" class="btn btn-primary">Read More →</a>
+                            </div>
+                            <div class="card-footer text-muted">
+                            Posted on {{newsDate}} by Emil Persson
+                            </div>
+                        </div>
+                    {{/each}}
+                {{/if}}
+            {{/if}}
+        </div>
+    </div>
+    {{#if pagination}}
+    <ul class="pagination justify-content-center mb-4">
+        {{#if disabledNext}}
+            <li class="page-item {{disabled}}">
+        {{else}}
+            <li class="page-item">
+        {{/if}}
+            <a class="page-link" href="/blog/{{previousPage}}">← Newer</a>
+        </li>
+        {{#if disabledPrevious}}
+            <li class="page-item {{disabled}}">
+        {{else}}
+            <li class="page-item">
+        {{/if}}
+            <a class="page-link {{disabled}}" href="/blog/{{nextPage}}">Older →</a>
+        </li>
+    </ul>
+    {{/if}}
+</div>

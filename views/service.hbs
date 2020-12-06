@@ -1,12 +1,17 @@
 <div class="container">
     <h1 class="text-center">Service</h1>
-    <p>Service av butikssystem är vår huvudverksamhet, och du kan tryggt vända dig till oss. Vi har lång erfarenhet av i stort sett alla på marknaden förekommande system. Vi utför service på: Kassasystem, Kassadiskar, Entrèsystem, Kontanthanteringssystem, Charkutrustning, Vågar, Tillbehör m.m.</p>
-    <div class="card" style="width: 18rem;">
-        <img class="card-img-top" src="..." alt="Card image cap">
-        <div class="card-body">
-            <h5 class="card-title">Kassasystem</h5>
-            <p class="card-text">Underhållsservice</p>
-            <a href="#" class="btn btn-primary">Se mer -></a>
-        </div>
+    <p class="text-center">Här är en lista över tjänster som vi jobbar med: </p>
+    <div class="card-deck offset-md-1">
+        {{#if serviceList.length}}
+        {{#each serviceList}}
+            <div class="card col-md-3" style="width: 18rem;">
+                <img class="card-img-top" src="./upload/services/{{imageLink}}" alt="Card image cap">
+                <div class="card-body">
+                    <h5 class="card-title">{{this.title}}</h5>
+                    <p class="card-text">{{description}}</p>
+                </div>
+            </div>
+        {{/each}}
+    {{/if}}
     </div>
 </div>

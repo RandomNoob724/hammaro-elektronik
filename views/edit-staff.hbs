@@ -1,0 +1,31 @@
+<main>
+    <div class="jumbotron container" id="create-post-form">
+        <form class="form-createpost form" method="POST" action="/staff/update/{{staffObject.id}}">
+            <h1 class="text-center">Edit blogpost</h1>
+            <div class="text-center mb-4">
+                {{#if validationErrors.length}}
+                <p>Errors:</p>
+                <ul>
+                    {{#each validationErrors}}
+                    <li>{{this}}</li>
+                    {{/each}}
+                </ul>
+                {{/if}}
+            </div>
+            <input type="hidden" name="_csrf" value="{{csrfToken}}">
+            <div class="form-label-group">
+                <input name="firstName" type="text" id="firstName create-post-input-field" class="form-control"
+                    placeholder="Blogpost Header" value="{{staffObject.firstName}}">
+            </div>
+            <div class="form-label-group">
+                <input name="lastName" type="text" id="lastName create-post-input-field" class="form-control"
+                    placeholder="Blogpost Header" value="{{staffObject.lastName}}">
+            </div>
+            <div class="form-label-group">
+                <input name="profession" type="text" id="profession create-post-input-field" class="form-control"
+                    placeholder="Blogpost Header" value="{{staffObject.profession}}">
+            </div>
+            <button class="btn btn-lg btn-primary btn-block" type="submit" id="create-post-submitbutton">Update</button>
+        </form>
+    </div>
+</main>
