@@ -25,6 +25,7 @@ db.run(`
             id INTEGER PRIMARY KEY,
             title TEXT,
             content TEXT,
+            date TEXT,
             imageLink TEXT
         )
 `);
@@ -122,6 +123,7 @@ exports.updateService = function(serviceInfo, callback){
 exports.getAllNews = function(callback){
     const query = "SELECT * FROM newsPost"
     db.all(query, function(error, newsList){
+        console.log(newsList);
         callback(error, newsList)
     })
 }
@@ -135,8 +137,10 @@ exports.getNewsPostById = function(id, callback){
 }
 
 exports.addNewsPost = function(newsInfo, callback){
-    const query = "INSERT INTO newsPost (title, content) VALUES (?,?)"
-    const values = [newsInfo.title, newsInfo.description]
+    const query = "INSERT INTO newsPost (title, date, content) VALUES (?,?,?)"
+    const date = Date(Date.now()).split(' ');
+    const perfectDate = date.splice(0, 4)
+    const values = [newsInfo.title, perfectDate, newsInfo.description]
     db.run(query, values, function(error){
         const id = this.lastID
         callback(error)

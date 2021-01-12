@@ -30,7 +30,8 @@ app.use(expressSession({
     secret: "paoifhdohfosdfjaodjf",
     saveUninitialized: false,
     resave: false,
-    store: new SQLiteStore()
+    store: new SQLiteStore(),
+    cookie: { maxAge: 60 * 60 * 24 * 1000 }
 }))
 
 app.use(function (request, response, next) {
