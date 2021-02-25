@@ -1,11 +1,11 @@
 <div class="container-fluid">
-    <h1>Manage Projects</h1>
+    <h1>Hantera Tjänster</h1>
     <table class="table table-striped col-md" id="project-table">
         <thead>
             <tr>
-            <th scope="col">Title</th>
-            <th scope="col">Edit</th>
-            <th scope="col">Delete</th>
+            <th scope="col">Titel</th>
+            <th scope="col">Uppdatera</th>
+            <th scope="col">Ta bort</th>
             </tr>
         </thead>
         <tbody>
@@ -13,11 +13,11 @@
                 {{#each serviceList}}
                     <tr>
                         <td>{{title}}</td>
-                        <td><a href="/service/update/{{id}}"><button class="btn btn-secondary">Edit</button></a></td>
+                        <td><a href="/service/update/{{id}}"><button class="btn btn-secondary">Uppdatera</button></a></td>
                         <td>
                             <form method="POST" action="/service/{{id}}/delete">
                                 <input type="hidden" name="_csrf" value="{{../csrfToken}}">
-                                <button class="btn btn-danger" type="submit">Delete</button>
+                                <button class="btn btn-danger" type="submit">Ta bort</button>
                             </form>
                         </td>
                     </tr>

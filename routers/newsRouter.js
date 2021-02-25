@@ -68,11 +68,12 @@ router.get('/add', function(request, response){
 router.post('/add', upload.single("myFile"), function(request, response){
     const title = request.body.newsTitle
     const description = request.body.newsDescription
+    const imageInfo = request.file.filename
     const newsInfo = {
         title, 
-        description
+        description,
+        imageInfo
     }
-    console.log(newsInfo);
     db.addNewsPost(newsInfo, function(error){
         if (error){
             response.status(500).render('error500.hbs')

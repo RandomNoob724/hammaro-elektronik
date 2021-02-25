@@ -109,7 +109,6 @@ router.post('/:id/delete', function(request, response){
 
     db.removeServiceWithId(id, function(error){
         if(error){
-            console.log(error);
             response.status(500).render('error500.hbs')
         } else {
             response.redirect('/service/manage')

@@ -17,6 +17,8 @@ const newsRouter = require('./routers/newsRouter')
 const codedUsername = 'Admin'
 const codedPassword = '123' //this should be a hashed password later
 
+const SALT_ROUNDS = 10
+
 app.engine('.hbs', handlebars({ extname: '.hbs' }));
 app.set('view engine', '.hbs')
 

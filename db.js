@@ -92,7 +92,6 @@ exports.getServiceWithId = function(id, callback){
 }
 
 exports.addNewService = function(serviceInfo, callback){
-    console.log(serviceInfo);
     const query = "INSERT INTO serviceType(title, description) VALUES (?,?)"
     const values = [serviceInfo.title, serviceInfo.description]
     db.run(query, values, function(errors){
@@ -123,7 +122,6 @@ exports.updateService = function(serviceInfo, callback){
 exports.getAllNews = function(callback){
     const query = "SELECT * FROM newsPost"
     db.all(query, function(error, newsList){
-        console.log(newsList);
         callback(error, newsList)
     })
 }
