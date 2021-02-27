@@ -68,11 +68,10 @@ router.get('/add', function(request, response){
 router.post('/add', upload.single("myFile"), function(request, response){
     const title = request.body.newsTitle
     const description = request.body.newsDescription
-    const imageInfo = request.file.filename
     const newsInfo = {
         title, 
         description,
-        imageInfo
+        //imageInfo
     }
     db.addNewsPost(newsInfo, function(error){
         if (error){
