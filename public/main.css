@@ -1,0 +1,121 @@
+/*
+    COLOR THEME
+*/
+.primary-color {
+    background-color: #1B264F;
+}
+
+#primary-color {
+    background-color: #1B264F;
+}
+
+.secondary-color {
+    background-color: #274690;
+}
+
+#secondary-color {
+    background-color: #274690;
+}
+
+.third-color {
+    background-color: #576CA8;
+}
+
+#third-color {
+    background-color: #576CA8;
+}
+
+.fourth-color {
+    background-color: #302B27;
+}
+
+#fourth-color {
+    background-color: #302B27;
+}
+
+.fifth-color {
+    background-color: #F5F3F5;
+}
+
+#fifth-color {
+    background-color: #F5F3F5;
+}
+/*
+    NAVBAR STYLING
+*/
+.navbar {
+    transition: all 0.4s;
+}
+
+.navbar .nav-link {
+    color: #fff;
+}
+
+.navbar .nav-link:hover,
+.navbar .nav-link:focus {
+    color: #fff;
+    text-decoration: none;
+}
+
+.navbar .navbar-brand {
+    color: #fff;
+}
+
+
+/* Change navbar styling on scroll */
+.navbar.active {
+    background: #fff;
+    box-shadow: 1px 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+.navbar.active .nav-link {
+    color: #F5F3F5;
+}
+
+.navbar.active .nav-link:hover,
+.navbar.active .nav-link:focus {
+    color: #F5F3F5;
+    text-decoration: none;
+}
+
+.navbar.active .navbar-brand {
+    color: #F5F3F5;
+}
+
+
+/* Change navbar styling on small viewports */
+@media (max-width: 991.98px) {
+    .navbar {
+        background: #fff;
+    }
+
+    .navbar .navbar-brand, .navbar .nav-link {
+        color: #555;
+    }
+}
+
+/*
+    HOMEPAGE STYLING
+*/
+.main {
+}
+
+#homepage {
+    color: white;
+    padding: 20em 0em 20em 0em;
+    background-image: url('/public/homepageimage.jpg');
+}
+
+/*
+    FILTER MENU STYLE
+*/
+.filter-menu{
+    padding: 3em 3em;
+}
+
+/*
+    NEWS
+*/
+#news{
+    background-color: gray;
+}

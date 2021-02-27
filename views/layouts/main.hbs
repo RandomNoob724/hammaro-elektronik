@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html>
+
 <head>
     <meta charset="UTF-8">
     <title>Hammarö elektronikservice</title>
@@ -14,56 +15,55 @@
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
         integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
         crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="../../public/main.css">
 </head>
 
-<body>
-    <nav class="navbar navbar-expand-lg navbar-light bg-light">
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
-            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-        </button>
+<body id="fifth-color">
+    <!-- Navbar-->
+    <header class="header">
+        <nav class="navbar navbar-expand-lg py-3 active" id="primary-color">
+            <div class="container"><a href="/" class="navbar-brand text-uppercase font-weight-bold">Hammarö
+                    Elektronikservice</a>
+                <button type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+                    aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation"
+                    class="navbar-toggler navbar-toggler-right"><i class="fa fa-bars"></i></button>
 
-        <div class="collapse navbar-collapse" id="navbarSupportedContent">
-            <ul class="navbar-nav mr-auto">
-                <li class="nav-item active">
-                    <a class="nav-link" href="/">Home <span class="sr-only">(current)</span></a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="/news">Nyheter</a>
-                </li>
-                <li class="nav-item">
-                    <a href="/service" class="nav-link">Service</a>
-                </li>
-                <li class="nav-item">
-                    <a href="#" class="nav-link">Tillbehör</a>
-                </li>
-                <li class="nav-item">
-                    <a href="#" class="nav-link">Referenser</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="/staff">Personal</a>
-                </li>
-                {{#if isLoggedIn}}
-                    <li class="nav-item">
-                        <a class="nav-link" href="/dashboard">Dashboard</a>
-                    </li>
-                {{/if}}
-            </ul>
-        </div>
-    </nav>
-    <main>
+                <div id="navbarSupportedContent" class="collapse navbar-collapse">
+                    <ul class="navbar-nav ml-auto">
+                        <li class="nav-item active"><a href="/" class="nav-link text-uppercase font-weight-bold">Hem</a>
+                        </li>
+                        <li class="nav-item"><a href="/news"
+                                class="nav-link text-uppercase font-weight-bold">Nyheter</a></li>
+                        <li class="nav-item"><a href="/service"
+                                class="nav-link text-uppercase font-weight-bold">Tjänster</a>
+                        </li>
+                        <li class="nav-item"><a href="/staff"
+                                class="nav-link text-uppercase font-weight-bold">Personal</a>
+                        </li>
+                        {{#if isLoggedIn}}
+                        <li class="nav-item"><a href="/dashboard"
+                                class="nav-link text-uppercase font-weight-bold">Dashboard</a>
+                            {{/if}}
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+    </header>
+    <main class="main">
         {{{body}}}
     </main>
-    <footer class="footer text-center bg-dark text-light fixed-bottom pt-5" id="main-footer">
-        <div class="navbar fixed-bottom bg-dark text-light">
-            <p>&copy; RandomNoobCodes 2020</p>
+    <footer class="footer text-light fixed-bottom pt-5" id="main-footer">
+        <div class="navbar fixed-bottom text-light">
+            <p class="text-uppercase font-weight-bold" style="color: #302B27;">&copy; RandomNoobCodes 2021</p>
             {{#if isLoggedIn}}
                 <form action="/logout" method="POST">
                     <input type="hidden" name="_csrf" value="{{csrfToken}}">
-                    <button class="btn text-light" type="submit">Logga ut</button>
+                    <button class="btn btn-danger text-light" type="submit">Logga ut</button>
                 </form>
             {{else}}
-                <a class="nav-link" href="/login"><button class="btn btn-primary">Logga in</button></a>
+                <a class="btn nav-link" href="/login"><button class="btn btn-primary">Logga in</button></a>
             {{/if}}
         </div>
     </footer>

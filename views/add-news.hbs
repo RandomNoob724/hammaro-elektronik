@@ -1,9 +1,9 @@
 <main>
     <div class="jumbotron container" id="create-post-form">
-        <form class="form-createpost form" method="POST" action="/news/add" enctype="multipart/form-data">
+        <form class="form-createpost form" method="POST" action="/news/add">
             <h1 class="text-center">Lägg till Nyheter</h1>
             <br>
-            <input type="hidden" name="_csrf" value="{{csrfToken}}" id="create-post-input-field">
+            <input type="hidden" name="_csrf" value="{{csrfToken}}">
             <div class="form-label-group">
                 <input name="newsTitle" type="text" class="form-control" placeholder="Nyhets titel" value="{{newsTitle}}" maxlength="100">
             </div>

@@ -1,11 +1,13 @@
 const express = require('express')
-const app = express()
 const handlebars = require('express-handlebars')
 const bodyParser = require('body-parser')
 const bcrypt = require('bcrypt')
 const cookieParser = require('cookie-parser')
+const csrf = require('csurf')
 const expressSession = require('express-session')
 const SQLiteStore = require('connect-sqlite3')(expressSession)
+
+const app = express()
 
 //routers
 const serviceRouter = require('./routers/serviceRouter')
@@ -19,14 +21,17 @@ const codedPassword = '123' //this should be a hashed password later
 
 const SALT_ROUNDS = 10
 
-app.engine('.hbs', handlebars({ extname: '.hbs' }));
-app.set('view engine', '.hbs')
-
-app.use(express.static(__dirname + '/public'))
+const csrfProtection = csrf({ cookie: true })
 
 app.use(bodyParser.urlencoded({
     extended: false
 }))
+
+app.engine('.hbs', handlebars({ extname: '.hbs' }));
+
+app.set('view engine', '.hbs')
+
+app.use("/public", express.static(__dirname + '/public'))
 
 app.use(expressSession({
     secret: "paoifhdohfosdfjaodjf",
@@ -36,9 +41,22 @@ app.use(expressSession({
     cookie: { maxAge: 60 * 60 * 24 * 1000 }
 }))
 
+app.use(cookieParser())
+
+app.use(csrfProtection)
+
 app.use(function (request, response, next) {
     response.locals.isLoggedIn = request.session.isLoggedIn
+    response.locals.csrfToken = request.csrfToken()
     next()
+})
+
+app.use(function (error, request, response, next) {
+    if (error.code === 'EBADCSRFTOKEN') {
+        response.status(403).render('error403.hbs')
+    } else {
+        next()
+    }
 })
 
 app.use('/news', newsRouter)
@@ -72,7 +90,7 @@ app.post('/login', function (request, response) {
     }
 })
 
-app.post('/logout', function(request, response){
+app.post('/logout', function (request, response) {
     request.session.isLoggedIn = false
     response.redirect('/')
 })
