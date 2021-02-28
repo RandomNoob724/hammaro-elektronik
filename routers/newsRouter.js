@@ -82,8 +82,22 @@ router.post('/add', upload.single("myFile"), function(request, response){
     })
 })
 
+router.get('/:id', function(request, response) {
+    const id = request.params.id;
+    db.getNewsPostById(id, function(error, post) {
+        if(error){
+            response.status(500).render('error500.hbs')
+        } else {
+            const model = {
+                newspost: post
+            }
+            response.render('news-post.hbs', model)
+        }
+    })
+})
+
 router.post('/:id/delete', function(request, response){
-    const id = request.params.id
+    const id = request.params.id;
     db.removeNewsPostWithId(id, function(error){
         if(error){
             response.status(500).render('error500.hbs')

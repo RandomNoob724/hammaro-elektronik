@@ -120,7 +120,7 @@ exports.updateService = function(serviceInfo, callback){
 
 //*NEWS
 exports.getAllNews = function(callback){
-    const query = "SELECT * FROM newsPost"
+    const query = "SELECT * FROM newsPost ORDER BY id DESC"
     db.all(query, function(error, newsList){
         callback(error, newsList)
     })

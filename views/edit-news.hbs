@@ -7,7 +7,7 @@
                 <p>Errors:</p>
                 <ul>
                     {{#each validationErrors}}
-                    <li>{{this}}</li>
+                        <li>{{this}}</li>
                     {{/each}}
                 </ul>
                 {{/if}}
@@ -15,11 +15,11 @@
             <input type="hidden" name="_csrf" value="{{csrfToken}}">
             <div class="form-label-group">
                 <input name="title" type="text" id="create-post-input-field" class="form-control"
-                    placeholder="Blogpost Header" value="{{newsObject.title}}">
+                    placeholder="Titel" value="{{newsObject.title}}">
             </div>
             <div class="form-label-group">
                 <textarea name="description" type="text" id="create-post-input-field" class="form-control"
-                    placeholder="Blogpost Header">{{newsObject.content}}</textarea>
+                    placeholder="Innehåll">{{newsObject.content}}</textarea>
             </div>
             <button class="btn btn-lg btn-primary btn-block" type="submit" id="create-post-submitbutton">Updatera</button>
         </form>

@@ -2,6 +2,7 @@
     <div class="row">
         <div class="col-md-12 align-items-md-center">
             <h1 class="my-4 text-center">Nyheter</h1>
+            <p class="text-center">Här visas nyheter från oss på Hammaröelektronikservice</p>
             <!--<li class="dropdown">
                 <a class="dropdown-toggle" data-toggle="dropdown" href="#">Filter
                     <span class="caret"></span></a>
@@ -22,12 +23,12 @@
             </li>-->
             <!-- Blog Post -->
             {{#if couldNotDeletePost}}
-            <h3>Servern kunde inte hantera delete requesten försök igen eller kontakta Admin</h3>
+                <h3>Servern kunde inte hantera delete requesten försök igen eller kontakta Admin</h3>
             {{/if}}
             {{#if validationErrors.length}}
-            {{#each validationErrors}}
-            <p class="text-danger">{{this}}</p>
-            {{/each}}
+                {{#each validationErrors}}
+                    <p class="text-danger">{{this}}</p>
+                {{/each}}
             {{/if}}
             {{#if somethingWentWrong}}
             <h3>Ursäkta oss!</h3>
@@ -41,7 +42,7 @@
                     <h2 class="card-title text-center">{{title}}</h2>
                     <img class="mx-auto d-block mb-3" style="width: 100%" src="{{imageLink}}" alt="">
                     <p class="card-text preview-text font-weight-light">{{content}}</p>
-                    <a href="/blog/post/{{id}}" class="btn btn-primary">Read More →</a>
+                    <a href="/news/{{id}}" class="btn btn-primary">Read More →</a>
                 </div>
                 <div class="card-footer text-muted">
                     Posted on {{date}} by Emil Persson
@@ -53,21 +54,21 @@
         </div>
     </div>
     {{#if pagination}}
-    <ul class="pagination justify-content-center mb-4">
-        {{#if disabledNext}}
-        <li class="page-item {{disabled}}">
+        <ul class="pagination justify-content-center mb-4">
+            {{#if disabledNext}}
+                <li class="page-item {{disabled}}">
             {{else}}
-        <li class="page-item">
+                <li class="page-item">
             {{/if}}
             <a class="page-link" href="/blog/{{previousPage}}">← Newer</a>
-        </li>
-        {{#if disabledPrevious}}
-        <li class="page-item {{disabled}}">
+            </li>
+            {{#if disabledPrevious}}
+                <li class="page-item {{disabled}}">
             {{else}}
-        <li class="page-item">
+                <li class="page-item">
             {{/if}}
-            <a class="page-link {{disabled}}" href="/blog/{{nextPage}}">Older →</a>
-        </li>
-    </ul>
+                <a class="page-link {{disabled}}" href="/blog/{{nextPage}}">Older →</a>
+            </li>
+        </ul>
     {{/if}}
 </div>
