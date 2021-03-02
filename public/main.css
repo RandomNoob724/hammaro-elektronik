@@ -48,7 +48,7 @@
 }
 
 .navbar .nav-link {
-    color: #fff;
+    color: #F5F3F5;
 }
 
 .navbar .nav-link:hover,
@@ -104,6 +104,7 @@
     color: white;
     padding: 20em 0em 20em 0em;
     background-image: url('/public/homepageimage.jpg');
+    background-size: cover;
 }
 
 /*
