@@ -3,7 +3,7 @@ const express = require('express');
 const router = express.Router();
 
 router.get('/', (request, response) => {
-    response.send('Hello there')
+    response.render('error-report.hbs')
 })
 
 module.exports = router

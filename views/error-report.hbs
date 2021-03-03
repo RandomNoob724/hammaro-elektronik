@@ -1,0 +1,23 @@
+<div class="jumbotron container" id="create-post-form">
+    <form class="form-createpost form" method="GET" action="mailto:emilper1999@gmail.com">
+        <h1 class="text-center">Skicka felanmälan</h1>
+        <p class="text-center">Felanmälan kommer att öppna din mail då din felanmälan kommer skickas som ett mail</p>
+        <br>
+        <input type="hidden" name="_csrf" value="{{csrfToken}}">
+        <div class="form-label-group">
+            <input name="newsTitle" type="text" class="form-control" placeholder="Nyhets titel" value="{{newsTitle}}"
+                maxlength="100">
+        </div>
+        <br>
+        <div class="form-label-group">
+            <input name="storeName" type="text" class="form-control" placeholder="Butikens Namn" value="{{storeName}}" maxlength="200">
+        </div>
+        <br>
+        <div class="form-label-group">
+            <textarea name="description" type="text" class="form-control" placeholder="Beskrivning: Beskriv här vad felet som du behöver hjälp med är"
+                value="{{description}}" maxlength="2000"></textarea>
+        </div>
+        <br>
+        <button class="btn btn-lg btn-primary btn-block" type="submit" id="create-post-submitbutton">Skicka</button>
+    </form>
+</div>
