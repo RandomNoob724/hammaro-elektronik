@@ -14,6 +14,7 @@ const serviceRouter = require('./routers/serviceRouter')
 const dashboardRouter = require('./routers/dashboardRouter')
 const staffRouter = require('./routers/staffRouter')
 const newsRouter = require('./routers/newsRouter')
+const errorReportRouter = require('./routers/errorReportRouter')
 
 //hardcoded login credentials
 const codedUsername = 'Admin'
@@ -63,6 +64,7 @@ app.use('/news', newsRouter)
 app.use('/service', serviceRouter)
 app.use('/dashboard', dashboardRouter)
 app.use('/staff', staffRouter)
+app.use('/reporterror', errorReportRouter)
 
 app.get('/', function (request, response) {
     response.render('home.hbs')

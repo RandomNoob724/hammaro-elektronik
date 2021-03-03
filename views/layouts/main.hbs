@@ -35,6 +35,8 @@
                         </li>
                         <li class="nav-item"><a href="/news"
                                 class="nav-link text-uppercase font-weight-bold">Nyheter</a></li>
+                        <li class="nav-item"><a href="/reporterror"
+                                class="nav-link text-uppercase font-weight-bold">Felanmälan</a></li>
                         <li class="nav-item"><a href="/service"
                                 class="nav-link text-uppercase font-weight-bold">Tjänster</a>
                         </li>
@@ -58,12 +60,12 @@
         <div class="navbar fixed-bottom text-light">
             <p class="text-uppercase font-weight-bold" style="color: #302B27;">&copy; RandomNoobCodes 2021</p>
             {{#if isLoggedIn}}
-                <form action="/logout" method="POST">
-                    <input type="hidden" name="_csrf" value="{{csrfToken}}">
-                    <button class="btn btn-danger text-light" type="submit">Logga ut</button>
-                </form>
+            <form action="/logout" method="POST">
+                <input type="hidden" name="_csrf" value="{{csrfToken}}">
+                <button class="btn btn-danger text-light" type="submit">Logga ut</button>
+            </form>
             {{else}}
-                <a class="btn nav-link" href="/login"><button class="btn btn-primary">Logga in</button></a>
+            <a class="btn nav-link" href="/login"><button class="btn btn-primary">Logga in</button></a>
             {{/if}}
         </div>
     </footer>
