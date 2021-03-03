@@ -1,36 +1,25 @@
 <!DOCTYPE html>
 <html>
-    <head>
-        <meta charset="UTF-8">
-        <title>Hammarö elektronikservice</title>
-        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
-            integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
-        <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
-            integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
-            crossorigin="anonymous"></script>
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
-            integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
-            crossorigin="anonymous"></script>
-        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
-            integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
-            crossorigin="anonymous"></script>
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-        <link rel="stylesheet" href="../../public/main.css">
-    </head>
 
-    <body id="fifth-color">
-        <!--Header-->
-        <header class="header">
-            <!-- Navbar-->
-            <nav class="navbar navbar-expand-lg py-3 active" id="primary-color">
-                <div class="container"><a href="/" class="navbar-brand text-uppercase font-weight-bold">Hammarö
-                        Elektronikservice</a>
-                    <button type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
-                        aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation"
-                        class="navbar-toggler navbar-toggler-right"><i class="fa fa-bars"></i></button>
+<head>
+    <meta charset="UTF-8">
+    <title>Hammarö elektronikservice</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+        integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+        integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+        crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
+        integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+        crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
+        integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+        crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="../../public/main.css">
+</head>
 
-<<<<<<< HEAD
 <body id="fifth-color">
     <!-- Navbar-->
     <header class="header">
@@ -61,54 +50,15 @@
                             {{/if}}
                         </li>
                     </ul>
-=======
-                    <div id="navbarSupportedContent" class="collapse navbar-collapse">
-                        <ul class="navbar-nav ml-auto">
-                            <li class="nav-item active"><a href="/" class="nav-link text-uppercase font-weight-bold">Hem</a>
-                            </li>
-                            <li class="nav-item"><a href="/news"
-                                    class="nav-link text-uppercase font-weight-bold">Nyheter</a></li>
-                            <li class="nav-item"><a href="/service"
-                                    class="nav-link text-uppercase font-weight-bold">Tjänster</a>
-                            </li>
-                            <li class="nav-item"><a href="/staff"
-                                    class="nav-link text-uppercase font-weight-bold">Personal</a>
-                            </li>
-                            {{#if isLoggedIn}}
-                            <li class="nav-item"><a href="/dashboard"
-                                    class="nav-link text-uppercase font-weight-bold">Dashboard</a>
-                                {{/if}}
-                            </li>
-                        </ul>
-                    </div>
->>>>>>> 0198a2a52962e1e5014eb98a55914a19a63e7b60
                 </div>
-            </nav>
-        </header>
-        <!--Main part of the website-->
-        <main class="main">
-            <!--Here we inject the HTML code-->
-            {{{body}}}
-        </main>
-        <!--Footer-->
-        <footer class="footer text-light fixed-bottom pt-5" id="main-footer">
-            <div class="navbar fixed-bottom text-light">
-                <p class="text-uppercase font-weight-bold" style="color: #302B27;">&copy; RandomNoobCodes 2021</p>
-                {{#if isLoggedIn}}
-                    <form action="/logout" method="POST">
-                        <input type="hidden" name="_csrf" value="{{csrfToken}}">
-                        <button class="btn btn-danger text-light" type="submit">Logga ut</button>
-                    </form>
-                {{else}}
-                    <a class="btn nav-link" href="/login"><button class="btn btn-primary">Logga in</button></a>
-                {{/if}}
-            </div>
-<<<<<<< HEAD
         </nav>
     </header>
+    <!--Main part of the website-->
     <main class="main">
+        <!--Here we inject the HTML code-->
         {{{body}}}
     </main>
+    <!--Footer-->
     <footer class="footer text-light fixed-bottom pt-5" id="main-footer">
         <div class="navbar fixed-bottom text-light">
             <p class="text-uppercase font-weight-bold" style="color: #302B27;">&copy; RandomNoobCodes 2021</p>
@@ -121,11 +71,8 @@
             <a class="btn nav-link" href="/login"><button class="btn btn-primary">Logga in</button></a>
             {{/if}}
         </div>
+
     </footer>
 </body>
 
-=======
-        </footer>
-    </body>
->>>>>>> 0198a2a52962e1e5014eb98a55914a19a63e7b60
 </html>
