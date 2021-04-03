@@ -6,6 +6,7 @@ const cookieParser = require('cookie-parser')
 const csrf = require('csurf')
 const expressSession = require('express-session')
 const SQLiteStore = require('connect-sqlite3')(expressSession)
+const dotenv = require('dotenv').config();
 
 const app = express()
 
@@ -97,6 +98,6 @@ app.post('/logout', function (request, response) {
     response.redirect('/')
 })
 
-app.listen(3000, function () {
+app.listen(process.env.PORT, function () {
     console.log("Listening on port 3000")
 })
