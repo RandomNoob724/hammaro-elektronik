@@ -1,4 +1,9 @@
 <main>
+    {{#if success}}
+        <h3 class="text-center text-success">{{msg}}</h3>
+    {{else}}
+        <h3 class="text-center text-danger">{{msg}}</h3>
+    {{/if}}
     <div class="jumbotron container" id="create-post-form">
         <form class="form-createpost form" method="POST" action="/reporterror/sendMail">
             <h1 class="text-center">Gör en Felanmälan</h1>
@@ -27,8 +32,10 @@
                     placeholder="Beskrivning: Beskriv problemet för felanmälan" value="{{problemDescription}}"
                     maxlength="2000"></textarea>
             </div>
+            <div class="g-recaptcha" data-sitekey="6Ldr9JoaAAAAABY5F6iPDTd6raflMz8OXkAs8oe1"></div>
             <br>
             <button class="btn btn-lg btn-primary btn-block" type="submit" id="create-post-submitbutton">Skicka</button>
         </form>
     </div>
+    <script src="https://www.google.com/recaptcha/api.js" async defer></script>
 </main>
